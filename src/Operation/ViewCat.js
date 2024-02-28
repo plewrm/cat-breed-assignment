@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { catOption } from '../options';
 
 const ViewCat = () => {
-    const [item, setItemt] = useState({
+    const [item, setItem] = useState({
         name: '',
         origin: '',
         weight: '',
@@ -13,18 +13,20 @@ const ViewCat = () => {
         wikipedia_url: '',
         image: { url: '' },
     });
-
+    // const [item,setItem]=useState(null)
     const { id } = useParams();
-    console.log("Cat see", id);
+    console.log("Cat ID Dsplay", id);
     useEffect(() => {
         loadCat();
     }, []);
 
     const loadCat = async () => {
         const resp = await axios.get(`https://api.thecatapi.com/v1/breeds/${id}`);
-        setItemt(resp.data);
-        console.log('print data', resp.data);
+        setItem(resp.data);
+        console.log('print View data', resp.data);
     };
+
+   
 
     return (
         <div className="container py-4">

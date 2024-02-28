@@ -13,7 +13,7 @@ const Home = () => {
   const loadCat = async () => {
     const result = await axios.get(`https://api.thecatapi.com/v1/breeds`,catOption);
     setCat(result.data);
-    console.log("print List data",result.data);
+    console.log("print data",result.data);
   };
 
  
